@@ -17,7 +17,7 @@
       <!--<div class="left">-->
       <h2>
         Arbitrary Style Transfer with magenta.js edited to combine 2 style
-        transfer by 107065862
+        transfer by 107065862 from
         <a href="https://glitch.com/~style-transfer">Original source</a>
       </h2>
     </div>
