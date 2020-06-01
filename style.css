@@ -1,172 +1,66 @@
-* {box-sizing: border-box; }
+* {box-sizing: border-box}
 
-body {
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
   margin: 0;
-  background: #f7f1f8;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
   color: white;
-}
-
-h1 {
-  padding: 0 14px;
-  font-weight: 100;
-}
-
-h2 {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-a:link, a:visited {
-  color: white;
-  font-weight: bold;
-}
-
-.dark {
-  color: #2d1832;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.left {
-  width: 50vw;
-  max-width: 800px;
-  background: blue;
-  text-align: center;
-}
-
-.bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.frame {
-  color: white;
-  padding: 3px;
-  margin: 3px;
-}
-
-.frame.flex {
-  display: flex;
-  flex-direction: column;
-}
-
-.frame label {
-  cursor: pointer;
+  float: left;
   border: none;
-  vertical-align: middle;
-  background: #f7f1f8;
-  color: #2d1832;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0 16px;
-  padding: 8px 24px;
-  font-size: 14px;
-  text-align: center;
-  border-radius: 3px;
-  transition: all 0.25s ease-in 0s;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }
 
-/*input[type="file"] {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  cursor: pointer;
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 10px 0px;
+ /* color: white;
   display: none;
-}*/
-
-.image {
-  height: 384px; /* TODO */
-  margin: 0 auto;
-  display: block;
+  padding: 100px 20px;
+  height: 100%;*/
 }
-
-canvas {
-  margin-bottom: 100px;
-}
-
-#loading {
-  animation: pulsing-fade 1.2s ease-in-out infinite;
-}
-
-@keyframes pulsing-fade { 
-  50% { opacity: 0.3; }
-}
-
-@media screen and (max-width: 1000px) {
-  .right {
-    width: 50vw;
-  }
-
-}
-
-@media screen and (max-width: 700px) {
-  .container {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-  .left, .right {
-    width: 100vw;
-  }
-  .frame {
-    text-align: center;
-    width: 100%;
-    
-  }
-
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
+img {
+    max-width: 100%;
   
-  /*background-color: DodgerBlue;*/
-  background-color: lightgreen;
-  justify-content: center;
+    height: auto;
 }
 
-.flex-container > div {
-  background-color: #f1f1f1;
-  
-  margin: 10px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 30px;
+.item {
+    width: 384px;
+    min-height: 384px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
 }
 
-.flex-container-green {
-  display: flex;
-  flex-wrap: wrap;
-  
-  background-color: green;
-  justify-content: center;
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: #000; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
 }
 
-.flex-container-green > div {
-  background-color: #f1f1f1;
-  
-  margin: 10px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 30px;
-}
-
-.button {
-  background-color: #008CBA; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+#Mix_2_Styles {background-color: red;}
+#Content_Mixed {background-color: orange;}
+#About {background-color: brown;}
+#Contact {background-color: green;}

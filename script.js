@@ -1,102 +1,55 @@
 const model = new mi.ArbitraryStyleTransferNetwork();
-const canvas = document.getElementById("stylized");
-const ctx = canvas.getContext("2d");
+const canvas_1 = document.getElementById("stylized_1");
+const ctx_1 = canvas_1.getContext("2d");
 
 const canvas_2 = document.getElementById("stylized_2");
 const ctx_2 = canvas_2.getContext("2d");
 
-//const canvas_3 = document.getElementById("stylized_3");
-//const ctx_3 = canvas_3.getContext("2d");
+const b_canvas_1 = document.getElementById("b_stylized_1");
+const b_ctx_1 = b_canvas_1.getContext("2d");
 
-//const canvas_4 = document.getElementById("stylized_4");
-//const ctx_4 = canvas_4.getContext("2d");
+const b_canvas_2 = document.getElementById("b_stylized_2");
+const b_ctx_2 = b_canvas_2.getContext("2d");
+
+const b_canvas_3 = document.getElementById("b_stylized_3");
+const b_ctx_3 = b_canvas_3.getContext("2d");
 
 const contentImg = document.getElementById("content");
-const styleImg = document.getElementById("style");
-
+const styleImg_1 = document.getElementById("style_1");
 const styleImg_2 = document.getElementById("style_2");
-const styleImg_3 = document.getElementById("style_3");
 
-//const styleImg_4 = document.getElementById("style_4");
+const b_contentImg = document.getElementById("b_content");
+const b_styleImg_1 = document.getElementById("b_style_1");
+const b_styleImg_2 = document.getElementById("b_style_2");
 
 const loading = document.getElementById("loading");
 const notLoading = document.getElementById("ready");
 
-const loading_2 = document.getElementById("loading_2");
-const notLoading_2 = document.getElementById("ready_2");
+const b_loading = document.getElementById("b_loading");
+const b_notLoading = document.getElementById("b_ready");
 
-//const styleRatio = document.getElementById("stylized-img-ratio").value / 100;
-//const styleRatio_2 =
-//  document.getElementById("stylized-img-ratio-2").value / 100;
-//setupDemo();
-
-$(".btn-transfer").click(function() {
-  model.initialize().then(() => {
-    startLoading();
-    stylize();
-  });
-
-  //stylize(contentImg,styleImg);
-});
-
-async function clearCanvas() {
-  // Don't block painting until we've reset the state.
-  await mi.tf.nextFrame();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx_2.clearRect(0, 0, canvas_2.width, canvas_2.height);
-  //ctx_3.clearRect(0, 0, canvas_3.width, canvas_3.height);
-
-  //ctx_4.clearRect(0, 0, canvas_4.width, canvas_4.height);
-  await mi.tf.nextFrame();
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
 }
 
-async function stylize() {
-  await clearCanvas();
+function loadContent(event) {
+  loadImage(event, contentImg);
+ 
+}
 
-  // Resize the canvas to be the same size as the source image.
-  canvas.width = contentImg.width;
-  canvas.height = contentImg.height;
-  canvas_2.width = contentImg.width;
-  canvas_2.height = contentImg.height;
-  //canvas_3.width = contentImg.width;
-  //canvas_3.height = contentImg.height;
-
-  //canvas_4.width = contentImg.width;
-  //canvas_4.height = contentImg.height;
-
-  // This does all the work!
-  //* @param content Content image to stylize
-  // * @param style Style image to use
-  // * @param strength If provided, controls the stylization strength.
-  // * Should be between 0.0 and 1.0.
-  //this.styleRatio = 1.0
-  // this.styleRatioSlider = document.getElementById('stylized-img-ratio').value;
-  //this.styleRatio=document.getElementById("stylized-img-ratio").value / 100;
-  //this.styleRatio_2=document.getElementById("stylized-img-ratio-2").value / 100;
-  console.log(document.getElementById("stylized-img-ratio").value / 100);
-  console.log(document.getElementById("stylized-img-ratio-2").value / 100);
-
-  model.stylize(styleImg, styleImg_2, document.getElementById("stylized-img-ratio").value / 100).then(imageData => {
-    ctx.putImageData(imageData, 0, 0);
-    model
-      .stylize(contentImg, imageData, document.getElementById("stylized-img-ratio-2").value / 100)
-      .then(imageData_2 => {
-        ctx_2.putImageData(imageData_2, 0, 0);
-        //model.stylize(imageData, imageData_2,this.styleRatio).then(imageData_3 => {
-        //ctx_3.putImageData(imageData_3, 0, 0);
-        //model.stylize(imageData_3, styleImg_3,this.styleRatio).then(imageData_4 => {
-        //ctx_4.putImageData(imageData_4, 0, 0);
-        stopLoading();
-        //});
-
-        //});
-      });
-  });
-
-  //model.stylize(styleImg, styleImg_2,this.styleRatio).then(imageData => {
-  // ctx_3.putImageData(imageData, 0, 0);
-
-  //});
+function b_loadContent(event) {
+  loadImage(event, b_contentImg);
+ 
 }
 
 function loadImage(event, imgElement) {
@@ -106,76 +59,163 @@ function loadImage(event, imgElement) {
 
     imgElement.width = 384;
     imgElement.height = 384;
-    //startLoading();
-    //stylize();
+  
   };
   reader.readAsDataURL(event.target.files[0]);
 }
 
-function display_ratio(event) {
-  document.getElementById("show-stylized-img-ratio").value =
-    document.getElementById("stylized-img-ratio").value / 100;
-  document.getElementById("show-stylized-img-ratio-2").value =
-    document.getElementById("stylized-img-ratio-2").value / 100;
-}
-
-function loadContent(event) {
-  loadImage(event, contentImg);
-  //resetScreen()
-}
-
-function loadStyle(event) {
-  loadImage(event, styleImg);
-  //resetScreen()
+function loadStyle_1(event) {
+  loadImage(event, styleImg_1);
 }
 
 function loadStyle_2(event) {
   loadImage(event, styleImg_2);
-  //resetScreen()
+
 }
 
-//function loadStyle_3(event) {
-//  loadImage(event, styleImg_3);
-//  resetScreen()
-//}
-
-//function loadStyle_4(event) {
-//  loadImage(event, styleImg_4);
-//  resetScreen()
-//}
-
-function resetScreen() {
-  loading.hidden = true;
-  notLoading.hidden = true;
-  loading_2.hidden = true;
-  notLoading_2.hidden = true;
-  //document.getElementById('stylized-img-ratio').value=50;
-  //document.getElementById('stylized-img-ratio-2').value=50;
-  //display_ratio()
-  clearCanvas();
+function b_loadStyle_1(event) {
+  loadImage(event, b_styleImg_1);
 }
 
-function startLoading() {
+function b_loadStyle_2(event) {
+  loadImage(event, b_styleImg_2);
+
+}
+
+
+async function stylize() {
+  console.log(document.getElementById("stylized-img-ratio-1").value / 100);
+  console.log(document.getElementById("stylized-img-ratio-2").value / 100);
+  //renderer.forceContextLoss();
+  // Resize the canvas to be the same size as the source image.
+  //console.log(contentImg.width);
+  //console.log(contentImg.height);
+  
+  canvas_1.width = styleImg_1.width;
+  canvas_1.height = styleImg_1.height;
+  
+  
+  canvas_2.width = contentImg.width;
+  canvas_2.height = contentImg.height;
+
+
+  model.stylize(styleImg_1, styleImg_2, document.getElementById("stylized-img-ratio-1").value / 100).then(imageData => {
+    ctx_1.putImageData(imageData, 0, 0);
+    model
+      .stylize(contentImg, imageData, document.getElementById("stylized-img-ratio-2").value / 100)
+      .then(imageData_2 => {
+        ctx_2.putImageData(imageData_2, 0, 0);
+        stopLoading();
+      });
+  });
+
+}
+
+async function b_stylize() {
+  console.log(document.getElementById("b_stylized-img-ratio-1").value / 100);
+  console.log(document.getElementById("b_stylized-img-ratio-2").value / 100);
+  console.log(document.getElementById("b_stylized-img-ratio-3").value / 100);
+  //renderer.forceContextLoss();
+  // Resize the canvas to be the same size as the source image.
+  //console.log(contentImg.width);
+  //console.log(contentImg.height);
+  
+  b_canvas_1.width = contentImg.width;
+  b_canvas_1.height = contentImg.height;
+  
+  
+  b_canvas_2.width = contentImg.width;
+  b_canvas_2.height = contentImg.height;
+  
+  b_canvas_3.width = contentImg.width;
+  b_canvas_3.height = contentImg.height;
+
+
+  model.stylize(b_contentImg, b_styleImg_1, document.getElementById("b_stylized-img-ratio-1").value / 100).then(imageData => {
+    b_ctx_1.putImageData(imageData, 0, 0);
+    model.stylize(b_contentImg, b_styleImg_2, document.getElementById("b_stylized-img-ratio-2").value / 100).then(imageData_2 => {
+        b_ctx_2.putImageData(imageData_2, 0, 0);
+        model.stylize(imageData, imageData_2, document.getElementById("b_stylized-img-ratio-3").value / 100).then(imageData_3 => {
+          b_ctx_3.putImageData(imageData_3, 0, 0);
+          b_stopLoading();
+        });
+    });
+  });
+
+}
+
+async function startLoading() {
   loading.hidden = false;
   notLoading.hidden = true;
-  loading_2.hidden = false;
-  notLoading_2.hidden = true;
 
-  canvas.style.opacity = 0;
+  canvas_1.style.opacity = 0;
   canvas_2.style.opacity = 0;
+  
 
-  //canvas_3.style.opacity = 0;
-  //canvas_4.style.opacity = 0;
 }
 
 function stopLoading() {
   loading.hidden = true;
   notLoading.hidden = false;
-  loading_2.hidden = true;
-  notLoading_2.hidden = false;
-  canvas.style.opacity = 1;
+  canvas_1.style.opacity = 1;
   canvas_2.style.opacity = 1;
+  
 
-  //canvas_3.style.opacity = 1;
-  // canvas_4.style.opacity = 1;
 }
+
+async function b_startLoading() {
+  b_loading.hidden = false;
+  b_notLoading.hidden = true;
+
+  
+  b_canvas_1.style.opacity = 0;
+  b_canvas_2.style.opacity = 0;
+  b_canvas_3.style.opacity = 0;
+}
+
+function b_stopLoading() {
+  b_loading.hidden = true;
+  b_notLoading.hidden = false;
+  
+  b_canvas_1.style.opacity = 1;
+  b_canvas_2.style.opacity = 1;
+  b_canvas_3.style.opacity = 1;
+
+}
+
+function display_ratio(event) {
+  document.getElementById("show-stylized-img-ratio-1").value =
+    document.getElementById("stylized-img-ratio-1").value / 100;
+  document.getElementById("show-stylized-img-ratio-2").value =
+    document.getElementById("stylized-img-ratio-2").value / 100;
+}
+
+function b_display_ratio(event) {
+  document.getElementById("b_show-stylized-img-ratio-1").value =
+    document.getElementById("b_stylized-img-ratio-1").value / 100;
+  document.getElementById("b_show-stylized-img-ratio-2").value =
+    document.getElementById("b_stylized-img-ratio-2").value / 100;
+      document.getElementById("b_show-stylized-img-ratio-3").value =
+    document.getElementById("b_stylized-img-ratio-3").value / 100;
+}
+
+$(".btn-transfer-1").click(function() {
+  
+  model.initialize().then(() => {
+    startLoading();
+    stylize();
+  });
+
+});
+
+$(".btn-transfer-2").click(function() {
+  
+  model.initialize().then(() => {
+    b_startLoading();
+    b_stylize();
+  });
+
+});
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
