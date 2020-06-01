@@ -12,7 +12,7 @@
     <script src="/magentaimage.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
     
-    <script src="/style-transfer/script.js" defer></script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
 
