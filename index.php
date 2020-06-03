@@ -57,7 +57,7 @@
           id="style_1"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F2_rain_princess.jpg?v=1588622022193"
+          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F1_la_muse.jpg?v=1588622018367"
         />
         </div>
 		
@@ -71,7 +71,7 @@
           id="style_2"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F1_la_muse.jpg?v=1588622018367"
+          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F9_White_Zig_Zags.jpg?v=1588622054819"
         />
         
         
@@ -203,7 +203,7 @@
           id="b_style_1"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F9_White_Zig_Zags.jpg?v=1588622054819"
+          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F1_la_muse.jpg?v=1588622018367"
         />
         </div>
 		
@@ -217,7 +217,7 @@
           id="b_style_2"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F0_udnie.jpg?v=1588622018096"
+          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F9_White_Zig_Zags.jpg?v=1588622054819"
         />
         
         
