@@ -343,12 +343,12 @@
 
 <div id="Contact" class="tabcontent">
   
-  <h3>Chontipan Plengvittaya 107065862</h3>
+  <h3>107065862</h3>
 </div>
 
 <div id="About" class="tabcontent">
   <h3>About</h3>
-  <p>A Project of AI-Art subject at NTHU, Taiwan.</p>
+  <p>A Project in AI-Art subject at NTHU, Taiwan.</p>
 </div>
 
    
