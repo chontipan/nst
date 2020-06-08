@@ -98,16 +98,24 @@ async function stylize() {
   canvas_2.width = contentImg.width;
   canvas_2.height = contentImg.height;
 
+  try {
+  
+    model.stylize(styleImg_1, styleImg_2, document.getElementById("stylized-img-ratio-1").value / 100).then(imageData => {
+      ctx_1.putImageData(imageData, 0, 0);
+      model
+        .stylize(contentImg, imageData, document.getElementById("stylized-img-ratio-2").value / 100)
+        .then(imageData_2 => {
+          ctx_2.putImageData(imageData_2, 0, 0);
+          stopLoading();
+       });
+    });
+    
+  }
+  catch(err) {
+    document.getElementById("error").innerHTML = err.message;
+  }
 
-  model.stylize(styleImg_1, styleImg_2, document.getElementById("stylized-img-ratio-1").value / 100).then(imageData => {
-    ctx_1.putImageData(imageData, 0, 0);
-    model
-      .stylize(contentImg, imageData, document.getElementById("stylized-img-ratio-2").value / 100)
-      .then(imageData_2 => {
-        ctx_2.putImageData(imageData_2, 0, 0);
-        stopLoading();
-      });
-  });
+  
 
 }
 
