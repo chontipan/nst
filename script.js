@@ -88,8 +88,6 @@ async function stylize() {
   console.log(document.getElementById("stylized-img-ratio-2").value / 100);
   //renderer.forceContextLoss();
   // Resize the canvas to be the same size as the source image.
-  //console.log(contentImg.width);
-  //console.log(contentImg.height);
   
   canvas_1.width = styleImg_1.width;
   canvas_1.height = styleImg_1.height;
@@ -125,8 +123,6 @@ async function b_stylize() {
   console.log(document.getElementById("b_stylized-img-ratio-3").value / 100);
   //renderer.forceContextLoss();
   // Resize the canvas to be the same size as the source image.
-  //console.log(b_contentImg.width);
-  //console.log(b_contentImg.height);
   
   b_canvas_1.width = b_contentImg.width;
   b_canvas_1.height = b_contentImg.height;
