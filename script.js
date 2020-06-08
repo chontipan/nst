@@ -28,19 +28,6 @@ const notLoading = document.getElementById("ready");
 const b_loading = document.getElementById("b_loading");
 const b_notLoading = document.getElementById("b_ready");
 
-var canvas = document.getElementById("myCanvas");
-canvas.addEventListener("webglcontextlost", function(event) {
-    event.preventDefault();
-}, false);
-
-var error = gl.getError();
-if (error != gl.NO_ERROR && error != gl.CONTEXT_LOST_WEBGL) {
-  alert("fail");
-}
-
-canvas.addEventListener(
-    "webglcontextrestored", setupWebGLStateAndResources, false);
-
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
