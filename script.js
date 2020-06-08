@@ -28,6 +28,11 @@ const notLoading = document.getElementById("ready");
 const b_loading = document.getElementById("b_loading");
 const b_notLoading = document.getElementById("b_ready");
 
+var canvas = document.getElementById("myCanvas");
+canvas.addEventListener("webglcontextlost", function(event) {
+    event.preventDefault();
+}, false);
+
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
