@@ -142,6 +142,7 @@
 
     <div class="row">
 	    <p id="error"></p>
+	    <canvas id="myCanvas"></canvas>
 	    </div>
     <div class="row">
           <span id="loading" class="blinking" hidden><b><u>Transfering </u></b></span
