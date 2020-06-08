@@ -140,7 +140,9 @@
           <label><u>Note:</u> More slide right, stronger the stylization</label>
         </div>
 
-        
+    <div class="row">
+	    <p id="error"></p>
+	    </div>
     <div class="row">
           <span id="loading" class="blinking" hidden><b><u>Transfering </u></b></span
           ><span id="ready" hidden><b><u>Stylized!</u></b></span>
