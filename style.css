@@ -35,9 +35,10 @@ body, html {
   height: 100%;*/
 }
 img {
-    max-width: 100%;
-  
-    height: auto;
+    /*max-width: 100%;
+    height: auto;*/
+    width: 384px;
+    height: 384px;
 }
 
 .item {
@@ -61,6 +62,6 @@ img {
 }
 
 #Mix_2_Styles {background-color: red;}
-#Content_Mixed {background-color: orange;}
+#Mixed_Content {background-color: orange;}
+#Content_Mixed {background-color: green;}
 #About {background-color: brown;}
-#Contact {background-color: green;}

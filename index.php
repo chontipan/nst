@@ -10,16 +10,14 @@
 	
     <script src="/jquery.min.js"></script>
     <script src="/magentaimage.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
-    
     <script src="/script.js" defer></script>
 </head>
 <body>
 
 <button class="tablink" onclick="openPage('Mix_2_Styles', this, 'red')" id="defaultOpen">Mix 2 Styles</button>
-<button class="tablink" onclick="openPage('Content_Mixed', this, 'orange')" >Content Mixed</button>
+<button class="tablink" onclick="openPage('Mixed_Content', this, 'orange')" >Mixed Content</button>
+<button class="tablink" onclick="openPage('Content_Mixed', this,'green')">Content Mixed</button>
 <button class="tablink" onclick="openPage('About', this,'brown')">About</button>
-<button class="tablink" onclick="openPage('Contact', this,'green')">107065862</button>
 <div id="Mix_2_Styles" class="tabcontent">
 <div class="dark">
       <p>
@@ -40,7 +38,7 @@
           id="content"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2Fgiant.jpg?v=1590987414658"
+          src="tuk-tuk.jpg"
         
         />
 		</div>
@@ -57,7 +55,7 @@
           id="style_1"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F1_la_muse.jpg?v=1588622018367"
+          src="100834129.jpg"
         />
         </div>
 		
@@ -71,7 +69,7 @@
           id="style_2"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F9_White_Zig_Zags.jpg?v=1588622054819"
+          src="mo.jpg"
         />
         
         
@@ -140,10 +138,7 @@
           <label><u>Note:</u> More slide right, stronger the stylization</label>
         </div>
 
-    <div class="row">
-	    <p id="error"></p>
-	    <canvas id="myCanvas"></canvas>
-	    </div>
+        
     <div class="row">
           <span id="loading" class="blinking" hidden><b><u>Transfering </u></b></span
           ><span id="ready" hidden><b><u>Stylized!</u></b></span>
@@ -169,7 +164,7 @@
 
 
 
-<div id="Content_Mixed" class="tabcontent">
+<div id="Mixed_Content" class="tabcontent">
 <div class="dark">
       <p>
         Arbitrary Style Transfer on magenta.js edited from
@@ -189,7 +184,7 @@
           id="b_content"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2Fgiant.jpg?v=1590987414658"
+          src="tuk-tuk.jpg"
         
         />
 		</div>
@@ -206,7 +201,8 @@
           id="b_style_1"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F1_la_muse.jpg?v=1588622018367"
+          src="100834129.jpg"
+          
         />
         </div>
 		
@@ -220,7 +216,7 @@
           id="b_style_2"
           class="image"
           crossorigin="anonymous"
-          src="https://cdn.glitch.com/f5e5faaa-7647-4544-a227-275f4a00f677%2F9_White_Zig_Zags.jpg?v=1588622054819"
+          src="mo.jpg"
         />
         
         
@@ -258,7 +254,7 @@
           />
         </div>
         <div class="row">
-          <label>(2) Stylization strength for Content + Style 2</label>
+          <label>(2) Stylization strength for Content Mixed:(1) + Style 2</label>
         </div>
         <div class="row">
           <input
@@ -277,29 +273,6 @@
               value="0.5"
               class="custom-range centered"
               id="b_show-stylized-img-ratio-2"
-              disabled
-          /></label>
-        </div>
-                 <div class="row">
-          <label>(3) Stylization strength for Mixed Content: (1)+(2)</label>
-        </div>
-                <div class="row">
-          <input
-            onchange="b_display_ratio(event)"
-            type="range"
-            min="0"
-            max="100"
-            value="50"
-            class="custom-range centered"
-            id="b_stylized-img-ratio-3"
-          />
-      
-          
-            <input
-              type="text"
-              value="0.5"
-              class="custom-range centered"
-              id="b_show-stylized-img-ratio-3"
               disabled
           /></label>
         </div>
@@ -327,31 +300,202 @@
         </div>
         
         <div class="row">
-          <label>(2) Content + Style 2 </label>
+          <label>(2) Content Mixed:(1) + Style 2 </label>
         </div>
         <div class="row">
           <canvas id="b_stylized_2"></canvas>
+        </div>
+        
+        <!--<div class="row">
+          <label>(3) Mixed Content: (1)+(2)</label>
+        </div>
+        <div class="row">
+          <canvas id="b_stylized_3"></canvas>
+        </div>-->
+        
+  </div>
+</div>
+</div>
+
+<div id="Content_Mixed" class="tabcontent">
+  
+  <div class="dark">
+      <p>
+        Arbitrary Style Transfer on magenta.js edited from
+        <a href="https://glitch.com/~style-transfer">Original source</a>
+      </p>
+</div>
+<div class="w3-row">
+  
+  <div class="w3-col s6 w3-green w3-center">
+
+ <div class="row">
+
+    <label> <b>Step 1.</b> Content <input type="file" onchange="c_loadContent(event)"
+        /></label>
+
+        <img
+          id="c_content"
+          class="image"
+          crossorigin="anonymous"
+          src="tuk-tuk.jpg"
+        
+        />
+		</div>
+		
+		
+		
+		<div class="row">
+        
+		      <label
+          >Step 2. Style 1 <input type="file" onchange="c_loadStyle_1(event)"
+        /></label>
+
+        <img
+          id="c_style_1"
+          class="image"
+          crossorigin="anonymous"
+          src="100834129.jpg"
+        />
+        </div>
+		
+        <div class="row">
+        
+         <label
+          >Step 3. Style 2 <input type="file" onchange="c_loadStyle_2(event)"
+        /></label>
+
+        <img
+          id="c_style_2"
+          class="image"
+          crossorigin="anonymous"
+          src="mo.jpg"
+        />
+        
+        
+        </div>
+        
+         
+        
+  </div>
+  <div class="w3-col s6 w3-dark-grey w3-center">
+    
+    <div class="row">
+          <label>Step 4: Adjust Stylization strength (from 0 to1.0)</label>
+        </div>
+
+        <div class="row">
+          <label>(1) Stylization strength for Content + Style 1</label>
+        </div>
+        <div class="row">
+          <input
+            onchange="c_display_ratio(event)"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="custom-range centered"
+            id="c_stylized-img-ratio-1"
+          />
+       
+            <input
+              type="text"
+              value="0.5"
+              class="custom-range centered"
+              id="c_show-stylized-img-ratio-1"
+              disabled
+          />
+        </div>
+        <div class="row">
+          <label>(2) Stylization strength for Content + Style 2</label>
+        </div>
+        <div class="row">
+          <input
+            onchange="c_display_ratio(event)"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="custom-range centered"
+            id="c_stylized-img-ratio-2"
+          />
+      
+          
+            <input
+              type="text"
+              value="0.5"
+              class="custom-range centered"
+              id="c_show-stylized-img-ratio-2"
+              disabled
+          /></label>
+        </div>
+                 <div class="row">
+          <label>(3) Stylization strength for Mixed Content: (1)+(2)</label>
+        </div>
+                <div class="row">
+          <input
+            onchange="c_display_ratio(event)"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="custom-range centered"
+            id="c_stylized-img-ratio-3"
+          />
+      
+          
+            <input
+              type="text"
+              value="0.5"
+              class="custom-range centered"
+              id="c_show-stylized-img-ratio-3"
+              disabled
+          /></label>
+        </div>
+               
+               
+        <div class="row">
+          <button class="button btn-transfer-3">
+            <span>Click to Style Transfer</span>
+          </button>
+        </div>
+        <div class="row">
+          <label><u>Note:</u> More slide right, stronger the stylization</label>
+        </div>
+
+        
+    <div class="row">
+          <span id="c_loading" class="blinking" hidden><b><u>Transfering </u></b></span
+          ><span id="c_ready" hidden><b><u>Stylized!</u></b></span>
+        </div>
+        <div class="row">
+          <label>(1) Content + Style 1 </label>
+        </div>
+        <div class="row">
+          <canvas id="c_stylized_1"></canvas>
+        </div>
+        
+        <div class="row">
+          <label>(2) Content + Style 2 </label>
+        </div>
+        <div class="row">
+          <canvas id="c_stylized_2"></canvas>
         </div>
         
         <div class="row">
           <label>(3) Mixed Content: (1)+(2)</label>
         </div>
         <div class="row">
-          <canvas id="b_stylized_3"></canvas>
+          <canvas id="c_stylized_3"></canvas>
         </div>
         
   </div>
 </div>
 </div>
 
-<div id="Contact" class="tabcontent">
-  
-  <h3>107065862</h3>
-</div>
-
 <div id="About" class="tabcontent">
   <h3>About</h3>
-  <p>A Project in AI-Art subject at NTHU, Taiwan.</p>
+  <p>107065852</p>
 </div>
 
    
